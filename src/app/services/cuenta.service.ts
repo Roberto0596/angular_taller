@@ -8,14 +8,14 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
+export class CuentaService {
 
-   private appUrl = 'http://localhost:8081/customer/';
+   private appUrl = 'http://localhost:8081/account/';
    
    constructor(private http: HttpClient, private cookies: CookieService) { }
 
-   getAlumns():Observable<any> {
-        return this.http.get(this.appUrl);
+   getAccounts(idCustomer:number):Observable<any> {
+        return this.http.get(this.appUrl + "getAccounts/" + idCustomer);
    }
 
    getAlumn(clave:number):Promise<Object> {
@@ -39,14 +39,14 @@ export class CustomerService {
    }
 
    setToken(token: any) {
-      this.cookies.set("userData", token);
+      this.cookies.set("token", token);
    }
    getToken() {
-      return JSON.parse(this.cookies.get("userData"));
+      return this.cookies.get("token");
    }
 
    logout() {
        this.cookies.deleteAll();
-       this.cookies.delete("userData");
+       this.cookies.delete("token");
    }
 }

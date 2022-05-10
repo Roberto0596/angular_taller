@@ -1,0 +1,54 @@
+
+<div class="wrapper">
+
+	<app-header></app-header>
+	<app-aside></app-aside>
+
+	<div class="content-wrapper" style="min-height: 1602px;">
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Movimientos</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Listado de movimientos</h3>
+                </div>
+                <div class="card-body">
+                    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+					<div class="row">
+						<div class="col-md-12">
+							<table datatable [dtOptions]="dtOptions"  [dtTrigger]="dtTrigger" class="row-border hover">
+								<thead>
+								  <tr>
+									<th>Monto</th>
+									<th>Concepto</th>
+									<th>Fecha</th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr *ngFor="let row of movements">
+									<td>{{ row.amount }}</td>
+									<td>{{ row.concept }}</td>
+									<td>{{ row.date }}</td>
+								  </tr>
+								</tbody>
+							  </table>
+						</div>
+					</div>
+                </div>
+            </div>	
+		</section>
+
+	</div>
+
+	<app-footer></app-footer>
+	
+</div>

@@ -1,0 +1,7 @@
+.hoverAccount {
+    cursor: pointer;
+}
+
+.hoverAccount:hover {
+    transform: translateY(3px);
+}

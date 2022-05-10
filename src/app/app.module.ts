@@ -14,10 +14,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
+import { MovementComponent } from './pages/movement/movement.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { TransferComponent } from './pages/transfer/transfer.component';
 
 const routes:Routes = [
   {path:"login", component: LoginComponent},
   {path:"home", component: HomeComponent},
+  {path:"movement", component: MovementComponent},
+  {path:"transfer", component: TransferComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full' }
 ]
 
@@ -39,7 +44,9 @@ const routes:Routes = [
     HomeComponent,
     HeaderComponent,
     AsideComponent,
-    FooterComponent
+    FooterComponent,
+    MovementComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +57,14 @@ const routes:Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxSpinnerModule
+    
   ],
   exports:[
     RouterModule
   ],
   providers: [
-  { provide: APP_BASE_HREF, useValue : '/home'},
+  { provide: APP_BASE_HREF, useValue : '/'},
   CookieService
   ],
   bootstrap: [AppComponent]

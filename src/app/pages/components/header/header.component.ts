@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.customerws.logout();
-    this.router.navigateByUrl('/alumn-signin');
+    this.router.navigateByUrl('/login');
   }
 
 }
