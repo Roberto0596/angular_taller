@@ -52,7 +52,8 @@ export class TransferComponent implements OnInit {
 
       this.transferws.doTransfer(data).then((res: any) => {
         if(res.status == -1) {
-          this.toast.warning(resñlo{gh21hx2145415};
+          this.toast.warning(res.message);
+          this.spinner.hide();
         } else {
           this.toast.info(res.message);
           window.location.reload();
